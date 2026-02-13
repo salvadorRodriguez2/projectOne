@@ -13,6 +13,13 @@ import jwt
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Hello, Flask!"
+@app.route("/auth", methods = ["POST"])
+def auth():
+    return "Does this work? The answer was yes."
+
+@app.route("/jwks", methods = ["GET"])
+def jwks():
+    {
+        "keys": []
+    }
+    return "No idea what a json object is."
