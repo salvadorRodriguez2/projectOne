@@ -3,8 +3,10 @@
     Description: This will be the server running on port 8080. 
     
     Steps to run:
-        1. Activate environment: .\.venv\Scripts\Activate.ps1
-        2. Start server:         python -m flask run -h localhost -p 8080
+        0.  Create .venv:                       clpython -m venv .venv
+        1.  Activate environment:               .\.venv\Scripts\Activate.ps1
+        1.5 Install all libraries if needed:    python -m pip install flask pytest pyjwt[crypto]
+        2.  Start server:                       python -m flask run -h localhost -p 8080
 '''
 
 # Libraries
