@@ -17,7 +17,8 @@
 '''
 # Libraries
 from flask import Flask
-import jwt
+#import jwt
+import keys, datetime
 
 # Defining the server name
 app = Flask(__name__)
@@ -27,14 +28,20 @@ app = Flask(__name__)
 @app.route("/auth", methods = ["POST"])
 def auth():
     authDictionary = {
-        "auth" : "This is a stretch"
+        "auth" : "This is a test"
     }
     return authDictionary
 
 # /JWKS Route
 @app.route("/jwks", methods = ["GET"])
 def jwks():
-    keyDictionary = {
-        "keys": "This is also a stretch"
-    }
-    return keyDictionary
+    # Getting current time
+    currentTime = datetime.now()
+    
+    # Creating list
+    valid_public_keys = []
+
+    for keys.keys in keys:
+        if (keys["expiresAt"] > datetime.now()):
+            valid_public_keys.append(keys["public_key"])
+    return "Testing now"
